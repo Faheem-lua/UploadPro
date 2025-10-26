@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Uploaded – ZipDrop</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <style>
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#0d1117;color:#c9d1d9;display:flex;align-items:center;justify-content:center;height:100vh;flex-direction:center;text-align:center;}
+    a{color:#58a6ff;font-size:18px;}
+    button{margin-top:20px;padding:8px 14px;border:none;border-radius:6px;background:#238636;color:#fff;font-size:14px;cursor:pointer;}
+  </style>
+</head>
+<body>
+  <h2>Your zip is ready</h2>
+  <p id="link"></p>
+  <button onclick="copy()">Copy link</button> · <a href="/">Upload another</a>
+  <script>
+    const url=new URLSearchParams(location.search).get('url');
+    document.getElementById('link').innerHTML=`<a href="${url}" target="_blank">${url}</a>`;
+    function copy(){navigator.clipboard.writeText(url);alert('Copied!');}
+  </script>
+</body>
+</html>
